@@ -60,7 +60,8 @@ Test the network. File bugs. Run a node. Your contributions earn a share of real
 **Why it's trustless:**
 - Escrow contract is [open-source](contracts/contributor_share/) — read it before you commit
 - Once locked, share weights are permanent — no admin override
-- Auto-activates on mainnet, earnings never expire
+- Auto-activates on mainnet, earning period lasts 12 months (~2.6M blocks)
+- What you earned is yours forever — claim anytime, even after the earning period ends
 
 Read the full details: [Revenue Sharing Explained](contracts/contributor_share/REVENUE_SHARING_EXPLAINED.md)
 
