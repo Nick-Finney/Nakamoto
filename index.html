@@ -179,19 +179,35 @@
 
         <section>
             <h2>Try the Testnet</h2>
-            <h3 style="margin-bottom: 12px; font-size: 1rem;">Option 1: Windows Installer</h3>
+            <h3 style="margin-bottom: 12px; font-size: 1rem;">Option 1: Windows Installer (Recommended)</h3>
             <p>Download and run the installer. Includes the node, CLI tools, Nakamoto Browser, and Tor.</p>
             <div class="links" style="margin-bottom: 24px;">
                 <a href="https://github.com/Nick-Finney/Nakamoto/releases" style="background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600;">Download NakamotoSetup-2.8.0.exe</a>
+                <a href="https://github.com/Nick-Finney/Nakamoto/releases">Standalone Browser Only</a>
             </div>
 
             <h3 style="margin-bottom: 12px; font-size: 1rem;">Option 2: Docker (Sandboxed)</h3>
             <p>Run it in Docker. No access to your filesystem or processes.</p>
-            <pre><code>curl -o nakamoto.tar http://772lyewe5kdag26koumq4ifzmhtwlp2rtwkhpscdrnvkem5l6nh67iad.onion/files/nakamoto-testnet.tar
-docker load -i nakamoto.tar
-docker run -p 8089:8089 -p 9333:9333 nakamoto-testnet</code></pre>
+            <pre><code><span class="highlight"># Via Tor (if you have Tor installed):</span>
+curl -o nakamoto.tar http://772lyewe5kdag26koumq4ifzmhtwlp2rtwkhpscdrnvkem5l6nh67iad.onion/files/nakamoto-testnet.tar
+
+<span class="highlight"># Or via clearnet (GitHub Container Registry):</span>
+docker pull ghcr.io/nick-finney/nakamoto-testnet:latest
+docker run -p 8089:8089 -p 9333:9333 ghcr.io/nick-finney/nakamoto-testnet:latest</code></pre>
             <p>Then open <code>http://localhost:8089</code></p>
-            <p style="margin-top: 12px; color: var(--muted); font-size: 0.9rem;">Get testnet coins from a Bitcoin testnet faucet, deposit them, and everything works like it would on mainnet.</p>
+
+            <h3 style="margin-bottom: 16px; margin-top: 24px; font-size: 1rem;">Getting Started (5 minutes)</h3>
+            <ol style="padding-left: 20px;">
+                <li style="margin-bottom: 8px;"><strong>Install and launch</strong> &mdash; Run the installer or Docker command above. The Nakamoto Browser opens automatically.</li>
+                <li style="margin-bottom: 8px;"><strong>Create a wallet</strong> &mdash; Go to the Wallet tab and click "Create Wallet." Save your wallet ID.</li>
+                <li style="margin-bottom: 8px;"><strong>Get testnet coins</strong> &mdash; Visit a <a href="https://coinfaucet.eu/en/btc-testnet/">Bitcoin testnet faucet</a>, send testnet BTC to your deposit address (shown in the wallet). 1 BTC = 100M tNAK.</li>
+                <li style="margin-bottom: 8px;"><strong>Explore</strong> &mdash; Browse <code>nak://</code> sites, send encrypted messages in the Early Access chat room, try staking as a validator, or store a file on-chain.</li>
+                <li style="margin-bottom: 8px;"><strong>Report bugs</strong> &mdash; File issues on <a href="https://github.com/Nick-Finney/Nakamoto/issues">GitHub</a>, the on-chain tracker at <code>nak://nakamoto/issues</code>, or in <a href="https://discord.gg/INVITE">Discord</a>. Every confirmed bug earns contributor points.</li>
+            </ol>
+            <div class="links" style="margin-top: 12px;">
+                <a href="https://github.com/Nick-Finney/Nakamoto/blob/main/docs/GETTING_STARTED_USER_GUIDE.md">Full Getting Started Guide</a>
+                <a href="https://github.com/Nick-Finney/Nakamoto/blob/main/docs/EARLY_ACCESS_GUIDE.md">Early Access Tester Guide</a>
+            </div>
         </section>
 
         <section>
@@ -241,23 +257,31 @@ docker run -p 8089:8089 -p 9333:9333 nakamoto-testnet</code></pre>
         </section>
 
         <section>
-            <h2>Links</h2>
-            <div class="links">
-                <a href="https://github.com/Nick-Finney/Nakamoto">GitHub</a>
-                <a href="https://github.com/Nick-Finney/Nakamoto/issues">Issue Tracker</a>
-            </div>
-            <p style="margin-top: 20px; font-size: 0.9rem;">Tor hidden service:</p>
-            <p class="onion">772lyewe5kdag26koumq4ifzmhtwlp2rtwkhpscdrnvkem5l6nh67iad.onion</p>
-        </section>
-
-        <section>
             <h2>Looking For</h2>
             <ul>
                 <li>Testnet testers who want to break things</li>
                 <li>Feedback on architecture, UX, and protocol design</li>
-                <li>Bug reports via the <a href="https://github.com/Nick-Finney/Nakamoto/issues">issue tracker</a> or on-chain at <code>nak://nakamoto/issues</code></li>
+                <li>Bug reports via <a href="https://github.com/Nick-Finney/Nakamoto/issues">GitHub</a>, on-chain at <code>nak://nakamoto/issues</code>, or in <a href="https://discord.gg/INVITE">Discord</a></li>
             </ul>
-            <p style="margin-top: 12px; color: var(--muted); font-size: 0.9rem;">Full technical whitepaper available to testers.</p>
+            <p style="margin-top: 16px;">Join the community &mdash; Discord is where testers coordinate, discuss bugs, and talk directly with the developer.</p>
+            <div class="links" style="margin-top: 12px;">
+                <a href="https://discord.gg/INVITE" style="background: #5865f2; color: #fff; border-color: #5865f2; font-weight: 600;">Join Discord</a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Links</h2>
+            <div class="links">
+                <a href="https://discord.gg/INVITE">Discord</a>
+                <a href="https://github.com/Nick-Finney/Nakamoto">GitHub</a>
+                <a href="https://github.com/Nick-Finney/Nakamoto/releases">Downloads</a>
+                <a href="https://github.com/Nick-Finney/Nakamoto/issues">Issue Tracker</a>
+                <a href="https://github.com/Nick-Finney/Nakamoto/blob/main/Whitepaper/TechnicalWhitepaper.md">Technical Whitepaper</a>
+                <a href="https://github.com/Nick-Finney/Nakamoto/blob/main/docs/GETTING_STARTED_USER_GUIDE.md">Getting Started</a>
+                <a href="https://github.com/Nick-Finney/Nakamoto/blob/main/contracts/contributor_share/REVENUE_SHARING_EXPLAINED.md">Revenue Sharing</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem;">Tor hidden service:</p>
+            <p class="onion">772lyewe5kdag26koumq4ifzmhtwlp2rtwkhpscdrnvkem5l6nh67iad.onion</p>
         </section>
 
         <footer>
