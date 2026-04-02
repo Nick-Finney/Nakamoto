@@ -45,9 +45,37 @@ The Docker container is fully sandboxed - no access to your filesystem or proces
 | Smart Contracts | WASM via Wazero |
 | Language | Go |
 
-## Tester Incentive
+## Earn From Contributing
 
-At mainnet launch, a trustless smart contract will redirect a percentage of protocol revenue (from the 5% dev fund) to testnet participants. The escrow contract code is open-source and verifiable. No trust required.
+Test the network. File bugs. Run a node. Your contributions earn a share of real protocol revenue — automatically, trustlessly, enforced by code nobody can change.
+
+**How it works:** Every transaction generates fees split by the protocol (40% validators, 30% trunk, 25% guardians, 5% dev fund). A portion of the dev fund flows to the contributor pool, split among testers by contribution.
+
+**How you earn:**
+- Find a critical bug: 100 points + 10% per upvote
+- Fix an issue: 2x the base points
+- Run a testnet node: 5 points/day
+- All scores public at `/api/v2/issues/scores`
+
+**Why it's trustless:**
+- Escrow contract is [open-source](contracts/contributor_share/) — read it before you commit
+- Once locked, share weights are permanent — no admin override
+- Auto-activates on mainnet, earnings never expire
+
+Read the full details: [Revenue Sharing Explained](contracts/contributor_share/REVENUE_SHARING_EXPLAINED.md)
+
+## Open-Source Components
+
+The following code is published for full auditability:
+
+| Component | Path | What |
+|---|---|---|
+| Escrow Contract | [`contracts/contributor_share/`](contracts/contributor_share/) | WASM escrow (hand-assembled, fully commented) |
+| Contract Tests | [`contributor_share_test.go`](contracts/contributor_share/contributor_share_test.go) | Bytecode verification tests |
+| Revenue Sharing Explainer | [`REVENUE_SHARING_EXPLAINED.md`](contracts/contributor_share/REVENUE_SHARING_EXPLAINED.md) | Plain-English walkthrough |
+| Share Manager | [`contributor_share_manager.go`](internal/core/contributor_share_manager.go) | Immutable contract logic (lock, auto-activate) |
+| Scoring Algorithm | [`contribution_scorer.go`](internal/core/contribution_scorer.go) | Point calculation + BPS snapshot |
+| Issue Tracker | [`issue_tracker_impl.go`](internal/core/issue_tracker_impl.go) | On-chain issue CRUD, voting, search |
 
 ## Looking For
 

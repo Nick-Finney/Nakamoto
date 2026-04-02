@@ -195,14 +195,36 @@ docker run -p 8089:8089 -p 9333:9333 nakamoto-testnet</code></pre>
         </section>
 
         <section>
-            <h2>Tester Incentive</h2>
-            <p>At mainnet launch, a trustless smart contract will redirect a percentage of protocol revenue to testnet participants. The escrow code is open-source and verifiable.</p>
-            <ul style="margin-top: 12px;">
-                <li>Protocol-enforced 5% dev fund from every transaction fee</li>
-                <li>Automatic distribution to testnet participant addresses</li>
-                <li>No trust required &mdash; the contract code handles it</li>
-                <li>You earn a claim on real satoshis flowing through the network</li>
+            <h2 style="color: var(--accent);">Earn From Contributing</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 16px;">Test the network. File bugs. Run a node. Your contributions earn a share of real protocol revenue &mdash; automatically, trustlessly, enforced by code that nobody can change.</p>
+
+            <h3 style="font-size: 1rem; margin: 20px 0 10px;">How It Works</h3>
+            <p>Every transaction on Nakamoto generates fees, split by the protocol: 40% validators, 30% trunk validators, 25% guardians, <strong>5% development fund</strong>. A portion of that dev fund flows to the contributor pool, split among testers proportional to their contribution.</p>
+
+            <h3 style="font-size: 1rem; margin: 20px 0 10px;">How You Earn Points</h3>
+            <ul>
+                <li><strong>Find a critical bug:</strong> 100 base points + 10% per community upvote</li>
+                <li><strong>Find a major bug:</strong> 50 base points</li>
+                <li><strong>Fix an issue yourself:</strong> 2x the base points for that severity</li>
+                <li><strong>Run a testnet node:</strong> 5 points per day (capped at 150/month)</li>
+                <li><strong>Duplicates or unconfirmed:</strong> 0 points. No gaming.</li>
             </ul>
+
+            <h3 style="font-size: 1rem; margin: 20px 0 10px;">Why It's Trustless</h3>
+            <ul>
+                <li>The escrow contract is <strong>open-source before you commit to testing</strong></li>
+                <li>Once locked, share weights are <strong>permanent</strong> &mdash; no admin override exists</li>
+                <li>Activation is automatic &mdash; mainnet detection triggers earnings on-chain</li>
+                <li>Your earnings <strong>never expire</strong> &mdash; claim whenever you want, even years later</li>
+                <li>All scores are public at <code>/api/v2/issues/scores</code></li>
+            </ul>
+
+            <h3 style="font-size: 1rem; margin: 20px 0 10px;">Read the Code Yourself</h3>
+            <div class="links">
+                <a href="https://github.com/Nick-Finney/Nakamoto/tree/main/contracts/contributor_share">Escrow Contract</a>
+                <a href="https://github.com/Nick-Finney/Nakamoto/blob/main/contracts/contributor_share/REVENUE_SHARING_EXPLAINED.md">Plain-English Explainer</a>
+                <a href="https://github.com/Nick-Finney/Nakamoto/blob/main/internal/core/contribution_scorer.go">Scoring Algorithm</a>
+            </div>
         </section>
 
         <section>
